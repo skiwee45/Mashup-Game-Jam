@@ -1,2 +1,2 @@
 # Mashup-Game-Jam
-Raymond, Alex, William
+Raymond, Alex, William, Arthur
