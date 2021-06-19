@@ -64,14 +64,18 @@ public class PortalStart : MonoBehaviour
 		{
 			return;
 		}
-		//position away from center of start portal
+		//position player
 		var deltaPos = new Vector3(originalPlayer.transform.position.x - (transform.position.x - (width / 2f)), 0, 0);
 		var portalEndEdgePosition = portalEnd.transform.position + Vector3.right	 * (width / 2f);
-		Debug.Log(width);
 		
 		//spawn copy on the other side with same velocity
+		var playerRB = originalPlayer.GetComponent<Rigidbody2D>();
 		playerCopy = Instantiate(originalPlayer, portalEndEdgePosition + deltaPos, Quaternion.identity);
-		playerCopy.GetComponent<Rigidbody2D>().velocity = originalPlayer.GetComponent<Rigidbody2D>().velocity;
+		playerCopy.GetComponent<Rigidbody2D>().velocity = playerRB.velocity;
+		
+		//make original player have no vertical velocity
+		playerRB.gravityScale = 0;
+		playerRB.velocity *= Vector2.right;
 	}
 	
 	/// <summary>
