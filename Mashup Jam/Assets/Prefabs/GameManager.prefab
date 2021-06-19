@@ -454,7 +454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68ccd3194409db40bfe84c7e47b9501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTag: 
+  playerTag: Player
 --- !u!114 &6574336702080946807
 MonoBehaviour:
   m_ObjectHideFlags: 0
