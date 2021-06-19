@@ -5,20 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class Levels : Singleton<Levels>
 {
+    private int level; 
     // Start is called before the first frame update
     void Start()
     {
-        // SceneManager.LoadScene("Level1");
+        level = 1;
 	    DontDestroyOnLoad(gameObject);
+        LoadLevel();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     public void Restart() {
-        SceneManager.LoadScene("Level1");
+        LoadLevel();
+    }
+
+    private void LoadLevel() {
+        SceneManager.LoadScene("Level" + level);
     }
 }
