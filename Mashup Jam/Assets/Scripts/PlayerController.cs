@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,8 +17,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector3 transformVector = new Vector3(1, 0, 0);
-        transformVector = transformVector.normalized * speed * Time.fixedDeltaTime;
-        rb.MovePosition(rb.transform.position + transformVector);
+	    rb.velocity = new Vector2(speed, rb.velocity.y);
     }
 }

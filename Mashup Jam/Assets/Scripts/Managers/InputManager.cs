@@ -16,6 +16,8 @@ public class InputManager : Singleton<InputManager>
 	
 	//public UnityEvents to be attached from inspector or from code using the singleton
 	public Vector2Event move;
+	public Vector2Event mousePosition;
+	public UnityEvent placePortal;
 	
 	// Awake is called when the script instance is being loaded.
 	protected void Awake()
@@ -26,6 +28,10 @@ public class InputManager : Singleton<InputManager>
 		
 		//attach HandlerMethods to events in the controls
 		controls.Gameplay.Movement.performed += MoveInputHandler;
+		controls.Gameplay.MousePosition.performed += MousePositionInputHandler;
+		controls.Gameplay.PlacePortal.performed += PlacePortalInputHandler;
+
+
 	}
 	
 	//handler methods
@@ -33,5 +39,16 @@ public class InputManager : Singleton<InputManager>
 	{
 		var input = value.ReadValue<Vector2>();
 		move?.Invoke(input);
+	}
+	
+	public void MousePositionInputHandler(InputAction.CallbackContext value)
+	{
+		var input = value.ReadValue<Vector2>();
+		mousePosition?.Invoke(input);
+	}
+	
+	public void PlacePortalInputHandler(InputAction.CallbackContext value)
+	{
+		placePortal?.Invoke();
 	}
 }

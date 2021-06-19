@@ -25,6 +25,22 @@ public class @UnconventionalMeans : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": ""NormalizeVector2"",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""MousePosition"",
+                    ""type"": ""Value"",
+                    ""id"": ""80494033-9343-4e35-961c-fb52f9bc3a5b"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""PlacePortal"",
+                    ""type"": ""Button"",
+                    ""id"": ""6ec126ba-928b-4b68-965a-1fe036480ee3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -137,6 +153,39 @@ public class @UnconventionalMeans : IInputActionCollection, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6f7c3656-d101-4dac-846f-0fa1d2bd5064"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MousePosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""19dad7fe-69be-4d9b-a2de-90edf91d7d9c"",
+                    ""path"": ""<Mouse>/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PlacePortal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""745c59fb-10f3-40d0-81bb-d090895452f1"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PlacePortal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -146,6 +195,8 @@ public class @UnconventionalMeans : IInputActionCollection, IDisposable
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
+        m_Gameplay_MousePosition = m_Gameplay.FindAction("MousePosition", throwIfNotFound: true);
+        m_Gameplay_PlacePortal = m_Gameplay.FindAction("PlacePortal", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -196,11 +247,15 @@ public class @UnconventionalMeans : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Gameplay;
     private IGameplayActions m_GameplayActionsCallbackInterface;
     private readonly InputAction m_Gameplay_Movement;
+    private readonly InputAction m_Gameplay_MousePosition;
+    private readonly InputAction m_Gameplay_PlacePortal;
     public struct GameplayActions
     {
         private @UnconventionalMeans m_Wrapper;
         public GameplayActions(@UnconventionalMeans wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Gameplay_Movement;
+        public InputAction @MousePosition => m_Wrapper.m_Gameplay_MousePosition;
+        public InputAction @PlacePortal => m_Wrapper.m_Gameplay_PlacePortal;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -213,6 +268,12 @@ public class @UnconventionalMeans : IInputActionCollection, IDisposable
                 @Movement.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
+                @MousePosition.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMousePosition;
+                @MousePosition.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMousePosition;
+                @MousePosition.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMousePosition;
+                @PlacePortal.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPlacePortal;
+                @PlacePortal.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPlacePortal;
+                @PlacePortal.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPlacePortal;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -220,6 +281,12 @@ public class @UnconventionalMeans : IInputActionCollection, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @MousePosition.started += instance.OnMousePosition;
+                @MousePosition.performed += instance.OnMousePosition;
+                @MousePosition.canceled += instance.OnMousePosition;
+                @PlacePortal.started += instance.OnPlacePortal;
+                @PlacePortal.performed += instance.OnPlacePortal;
+                @PlacePortal.canceled += instance.OnPlacePortal;
             }
         }
     }
@@ -227,5 +294,7 @@ public class @UnconventionalMeans : IInputActionCollection, IDisposable
     public interface IGameplayActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnMousePosition(InputAction.CallbackContext context);
+        void OnPlacePortal(InputAction.CallbackContext context);
     }
 }

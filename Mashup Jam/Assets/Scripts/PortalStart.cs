@@ -21,8 +21,12 @@ public class PortalStart : MonoBehaviour
 	{
 		if (other.CompareTag(playerTag))
 		{
+			//position away from center of start portal
+			var deltaPos = transform.position - other.transform.position;
+			
 			//spawn copy on the other side
-			playerCopy = Instantiate(other.gameObject, portalClose.transform.position, Quaternion.identity);
+			playerCopy = Instantiate(other.gameObject, portalClose.transform.position + deltaPos, Quaternion.identity);
+			playerCopy.GetComponent<Rigidbody2D>().velocity = other.GetComponent<Rigidbody2D>().velocity;
 		}
 	}
 	
