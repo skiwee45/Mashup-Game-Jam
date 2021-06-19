@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,7 +9,7 @@ public class Levels : Singleton<Levels>
     void Start()
     {
         // SceneManager.LoadScene("Level1");
-        // DontDestroyOnLoad();
+	    DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
