@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 100;
-    public Rigidbody2D rb;
+    [SerializeField]
+    private float speed = 1;
+    private Rigidbody2D rb;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +17,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector3 transformVector = new Vector3(10, 0, 0);
+        Vector3 transformVector = new Vector3(1, 0, 0);
         transformVector = transformVector.normalized * speed;
         rb.MovePosition(rb.transform.position + transformVector);
     }
