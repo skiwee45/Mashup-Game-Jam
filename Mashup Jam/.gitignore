@@ -60,3 +60,6 @@ crashlytics-build.properties
 
 # VS Code preferences
 .vscode
+
+# User Settings
+UserSettings
