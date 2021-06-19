@@ -12,7 +12,9 @@ public class PlayerHealth : MonoBehaviour
         if (layer == 6)
         {
             PlayerManager.Instance.Respawn();
-        } else if (layer == 7) {
+        }
+        else if (layer == 7)
+        {
             LevelManager.Instance.Next();
         }
     }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1406,63 +1406,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43c5487ffbfe2834b9a6399393068c4e, type: 3}
---- !u!1001 &1933177685
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3292647060409978381, guid: c1d332d5452c11447a4498e51374f7d0, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3292647060409978381, guid: c1d332d5452c11447a4498e51374f7d0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.954324
-      objectReference: {fileID: 0}
-    - target: {fileID: 3292647060409978381, guid: c1d332d5452c11447a4498e51374f7d0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.8668997
-      objectReference: {fileID: 0}
-    - target: {fileID: 3292647060409978381, guid: c1d332d5452c11447a4498e51374f7d0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1695.0204
-      objectReference: {fileID: 0}
-    - target: {fileID: 3292647060409978381, guid: c1d332d5452c11447a4498e51374f7d0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3292647060409978381, guid: c1d332d5452c11447a4498e51374f7d0, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3292647060409978381, guid: c1d332d5452c11447a4498e51374f7d0, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3292647060409978381, guid: c1d332d5452c11447a4498e51374f7d0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3292647060409978381, guid: c1d332d5452c11447a4498e51374f7d0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3292647060409978381, guid: c1d332d5452c11447a4498e51374f7d0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3292647060409978381, guid: c1d332d5452c11447a4498e51374f7d0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3292647060409978382, guid: c1d332d5452c11447a4498e51374f7d0, type: 3}
-      propertyPath: m_Name
-      value: Portal Placer
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c1d332d5452c11447a4498e51374f7d0, type: 3}
 --- !u!1 &1977853437
 GameObject:
   m_ObjectHideFlags: 0
