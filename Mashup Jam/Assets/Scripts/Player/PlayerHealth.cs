@@ -10,10 +10,13 @@ public class PlayerHealth : MonoBehaviour
     //Detect collisions between the GameObjects with Colliders attached
     void OnCollisionEnter2D(Collision2D collision)
     {
+        int layer = collision.gameObject.layer;
         //dangerous layer
-        if (collision.gameObject.layer == 6)
+        if (layer == 6)
         {
             PlayerManager.Instance.Respawn();
+        } else if (layer == 7) {
+            LevelManager.Instance.Next();
         }
     }
 

@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Levels : Singleton<Levels>
+public class LevelManager : Singleton<LevelManager>
 {
     private int level; 
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("HI");
         level = 1;
 	    DontDestroyOnLoad(gameObject);
         LoadLevel();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void Restart() {
+        LoadLevel();
     }
 
-    public void Restart() {
+    public void Next() {
+        level++;
         LoadLevel();
     }
 
