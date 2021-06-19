@@ -8,6 +8,8 @@ public class PortalStart : MonoBehaviour
 	//config
 	[Tag]
 	public string playerTag;
+	[Tag]
+	public string teleportingPlayerTag;
 	private GameObject portalEnd;
 	public GameObject PortalEnd
 	{
@@ -76,6 +78,7 @@ public class PortalStart : MonoBehaviour
 		//make original player have no vertical velocity
 		playerRB.gravityScale = 0;
 		playerRB.velocity *= Vector2.right;
+		originalPlayer.tag = teleportingPlayerTag;
 	}
 	
 	/// <summary>

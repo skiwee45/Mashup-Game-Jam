@@ -123,4 +123,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTag: Player
-  portalEnd: {fileID: 0}
+  teleportingPlayerTag: Teleporting Player
