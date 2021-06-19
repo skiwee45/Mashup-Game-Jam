@@ -9,13 +9,18 @@ public class PortalStart : MonoBehaviour
 	[SerializeField]
 	[Tag]
 	private string playerTag;
-	
-	[SerializeField]
-	private GameObject portalEnd;
+	public GameObject portalEnd;
+	private float width;
 	
 	//runtime
 	private GameObject originalPlayer = null; //set to null if not in the middle of teleport
 	private GameObject playerCopy;
+
+	// Start is called on the frame when a script is enabled just before any of the Update methods is called the first time.
+	protected void Start()
+	{
+		width = GetComponent<BoxCollider2D>().size.x;
+	}
 
 	// Sent when another object enters a trigger collider attached to this object (2D physics only).
 	protected void OnTriggerEnter2D(Collider2D other)
@@ -47,6 +52,10 @@ public class PortalStart : MonoBehaviour
 	
 	private void StartTeleport(GameObject player)
 	{
+		if (portalEnd == null)
+		{
+			return;
+		}
 		originalPlayer = player;
 		//position away from center of start portal
 		var deltaPos = new Vector3(transform.position.x - originalPlayer.transform.position.x, 0, 0);
@@ -58,9 +67,14 @@ public class PortalStart : MonoBehaviour
 	
 	private void EndTeleport()
 	{
+		if (originalPlayer == null)
+		{
+			return;
+		}
 		//delete this player
 		var name = originalPlayer.name;
-		Destroy(originalPlayer.gameObject);
+		Destroy(originalPlayer);
+		originalPlayer = null;
 			
 		//change name of copy
 		playerCopy.name = name;

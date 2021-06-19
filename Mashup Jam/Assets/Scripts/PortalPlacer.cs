@@ -19,18 +19,20 @@ public class PortalPlacer : MonoBehaviour
 	private GameObject endPortalPlaceholderPrefab;
 	
 	//runtime
-	private bool fullPortalPlaced = false;
+	private bool fullPortalPlaced = true;
 	private Camera mainCamera;
-	private GameObject startPortalPlaceholder;
-	private GameObject endPortalPlaceholder;
 	private GameObject startPortal;
+	private GameObject startPortalPlaceholder;
 	private GameObject endPortal;
+	private GameObject endPortalPlaceholder;
 	
 	// Awake is called when the script instance is being loaded.
 	protected void Awake()
 	{
 		startPortalPlaceholder = Instantiate(startPortalPlaceholderPrefab);
+		startPortalPlaceholder.SetActive(true);
 		endPortalPlaceholder = Instantiate(endPortalPlaceholderPrefab);
+		endPortalPlaceholder.SetActive(false);
 	}
 	
     // Start is called before the first frame update
@@ -50,7 +52,7 @@ public class PortalPlacer : MonoBehaviour
 	
 	public void SetPlacePortal()
 	{
-		//call method
+		PlacePortal();
 	}
 	
 	/// <summary>
@@ -74,12 +76,33 @@ public class PortalPlacer : MonoBehaviour
 	
 	private void PlacePortal()
 	{
-		if (fullPortalPlaced)
+		if (fullPortalPlaced) //start portal
 		{
+			//destroy last portal
+			Destroy(startPortal);
+			startPortal = null;
+			Destroy(endPortal);
+			endPortal = null;
+			
+			//create new portal
 			startPortalPlaceholder.SetActive(false);
+			startPortal = Instantiate(startPortalPrefab, startPortalPlaceholder.transform.position, Quaternion.identity);
+			
+			//update runtime variables
+			fullPortalPlaced = false;
+			endPortalPlaceholder.SetActive(true);
+		} else //end portal
+		{
+			//create new portal
+			endPortalPlaceholder.SetActive(false);
+			endPortal = Instantiate(endPortalPrefab, endPortalPlaceholder.transform.position, Quaternion.identity);
+			
+			//add endportal to startportal
+			startPortal.GetComponent<PortalStart>().portalEnd = endPortal;
+			
+			//update runtime variables
+			fullPortalPlaced = true;
+			startPortalPlaceholder.SetActive(true);
 		}
-		//TODO: Replace placeholder with real portal
-		//TODO: Change runtime variabes
-		//TODO: SetActive the other placeholder
 	}
 }
