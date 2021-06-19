@@ -10,13 +10,15 @@ public class PortalStart : MonoBehaviour
 	public string playerTag;
 	[Tag]
 	public string teleportingPlayerTag;
+	[Layer]
+	public int teleportingPlayerLayer;
 	private GameObject portalEnd;
 	public GameObject PortalEnd
 	{
 		get => portalEnd;
 		set {
 			portalEnd = value;
-			portalEnd.GetComponent<PortalEnd>().portalStart = this;
+			//portalEnd.GetComponent<PortalEnd>().portalStart = this;
 			//check if already has player inside it
 			if (originalPlayer == null)
 			{
@@ -50,6 +52,15 @@ public class PortalStart : MonoBehaviour
 		}
 	}
 	
+	// Sent when another object leaves a trigger collider attached to this object (2D physics only).
+	protected void OnTriggerExit2D(Collider2D other)
+	{
+		if (other.CompareTag(teleportingPlayerTag))
+		{
+			EndTeleport();
+		}
+	}
+	
 	// This function is called when the MonoBehaviour will be destroyed.
 	protected void OnDestroy()
 	{
@@ -75,10 +86,11 @@ public class PortalStart : MonoBehaviour
 		playerCopy = Instantiate(originalPlayer, portalEndEdgePosition + deltaPos, Quaternion.identity);
 		playerCopy.GetComponent<Rigidbody2D>().velocity = playerRB.velocity;
 		
-		//make original player have no vertical velocity
+		//make original player have no vertical velocity and pass through objects
 		playerRB.gravityScale = 0;
 		playerRB.velocity *= Vector2.right;
 		originalPlayer.tag = teleportingPlayerTag;
+		originalPlayer.layer = teleportingPlayerLayer;
 	}
 	
 	/// <summary>

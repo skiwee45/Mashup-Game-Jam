@@ -9,13 +9,13 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Dangerous
   - Goal
-  - 
-  - 
+  - Portal
+  - Teleporting Player
   - 
   - 
   - 

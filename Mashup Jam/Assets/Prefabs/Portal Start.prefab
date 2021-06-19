@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1536644760794917228}
   - component: {fileID: 1536644760794917229}
   - component: {fileID: 1536644760794917226}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Portal Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,3 +124,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTag: Player
   teleportingPlayerTag: Teleporting Player
+  teleportingPlayerLayer: 9
