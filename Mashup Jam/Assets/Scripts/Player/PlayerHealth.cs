@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    void Start() {
-        PlayerManager.Instance.SetSpawnPoint();
-    }
     //Detect collisions between the GameObjects with Colliders attached
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -15,7 +12,9 @@ public class PlayerHealth : MonoBehaviour
         if (layer == 6)
         {
             PlayerManager.Instance.Respawn();
-        } else if (layer == 7) {
+        }
+        else if (layer == 7)
+        {
             LevelManager.Instance.Next();
         }
     }
