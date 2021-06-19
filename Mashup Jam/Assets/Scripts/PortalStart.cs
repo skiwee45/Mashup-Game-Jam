@@ -56,9 +56,14 @@ public class PortalStart : MonoBehaviour
 		{
 			return;
 		}
-		originalPlayer = player;			
+		originalPlayer = player;
+		//position away from center of start portal
+		var deltaPos = new Vector3(originalPlayer.transform.position.x - (transform.position.x - (width / 2f)), 0, 0);
+		var portalEndEdgePosition = portalEnd.transform.position + Vector3.right	 * (width / 2f);
+		Debug.Log(portalEndEdgePosition);
+		
 		//spawn copy on the other side with same velocity
-		playerCopy = Instantiate(originalPlayer, portalEnd.transform.position, Quaternion.identity);
+		playerCopy = Instantiate(originalPlayer, portalEndEdgePosition - deltaPos, Quaternion.identity);
 		playerCopy.GetComponent<Rigidbody2D>().velocity = originalPlayer.GetComponent<Rigidbody2D>().velocity;
 	}
 	
