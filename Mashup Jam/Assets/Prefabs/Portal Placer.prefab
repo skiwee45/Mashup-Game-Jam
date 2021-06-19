@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3292647060409978382
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3292647060409978381}
+  - component: {fileID: 3292647060409978380}
+  m_Layer: 0
+  m_Name: Portal Placer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3292647060409978381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3292647060409978382}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.954324, y: 3.8668997, z: -1695.0204}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3292647060409978380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3292647060409978382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73831840c1e4304782b44b23f967054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPortalPrefab: {fileID: 1536644760794917227, guid: a9620804ee9302f4a8ce24668d3d6b2f, type: 3}
+  startPortalPlaceholderPrefab: {fileID: 7082932931391863591, guid: 260a1b47fb74a624a8817bafb6287c7f, type: 3}
+  endPortalPrefab: {fileID: 8599011350058155460, guid: f1a7919401f1f874a83131e275270cb6, type: 3}
+  endPortalPlaceholderPrefab: {fileID: 7519201645389748257, guid: eca68122005d67c45aa740b55f8fae97, type: 3}
