@@ -9,7 +9,6 @@ public class PlayerManager : Singleton<PlayerManager>
     void Start()
     {
         spawn = GameObject.FindGameObjectWithTag("Player").transform.position;
-        Debug.Log(spawn);
     }
 
     // Update is called once per frame
