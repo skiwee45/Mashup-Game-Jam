@@ -11,9 +11,10 @@ public class PortalStart : MonoBehaviour
 	private string playerTag;
 	
 	[SerializeField]
-	private GameObject portalClose;
+	private GameObject portalEnd;
 	
 	//runtime
+	private GameObject originalPlayer = null; //set to null if not in the middle of teleport
 	private GameObject playerCopy;
 
 	// Sent when another object enters a trigger collider attached to this object (2D physics only).
@@ -21,12 +22,7 @@ public class PortalStart : MonoBehaviour
 	{
 		if (other.CompareTag(playerTag))
 		{
-			//position away from center of start portal
-			var deltaPos = transform.position - other.transform.position;
-			
-			//spawn copy on the other side
-			playerCopy = Instantiate(other.gameObject, portalClose.transform.position + deltaPos, Quaternion.identity);
-			playerCopy.GetComponent<Rigidbody2D>().velocity = other.GetComponent<Rigidbody2D>().velocity;
+			StartTeleport(other.gameObject);
 		}
 	}
 	
@@ -35,12 +31,38 @@ public class PortalStart : MonoBehaviour
 	{
 		if (other.CompareTag(playerTag))
 		{
-			//delete this player
-			var name = other.name;
-			Destroy(other.gameObject);
-			
-			//change name of copy
-			playerCopy.name = name;
+			EndTeleport();
 		}
+	}
+	
+	// This function is called when the MonoBehaviour will be destroyed.
+	protected void OnDestroy()
+	{
+		if (originalPlayer != null)
+		{
+			EndTeleport();
+		}
+		Destroy(portalEnd);
+	}
+	
+	private void StartTeleport(GameObject player)
+	{
+		originalPlayer = player;
+		//position away from center of start portal
+		var deltaPos = new Vector3(transform.position.x - originalPlayer.transform.position.x, 0, 0);
+			
+		//spawn copy on the other side with same velocity
+		playerCopy = Instantiate(originalPlayer, portalEnd.transform.position + deltaPos, Quaternion.identity);
+		playerCopy.GetComponent<Rigidbody2D>().velocity = originalPlayer.GetComponent<Rigidbody2D>().velocity;
+	}
+	
+	private void EndTeleport()
+	{
+		//delete this player
+		var name = originalPlayer.name;
+		Destroy(originalPlayer.gameObject);
+			
+		//change name of copy
+		playerCopy.name = name;
 	}
 }

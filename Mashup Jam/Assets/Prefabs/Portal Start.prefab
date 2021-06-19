@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1536644760794917227}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -123,4 +123,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTag: Player
-  portalClose: {fileID: 8599011350058155460, guid: f1a7919401f1f874a83131e275270cb6, type: 3}
+  portalClose: {fileID: 0}
