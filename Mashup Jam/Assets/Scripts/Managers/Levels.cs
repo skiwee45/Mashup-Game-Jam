@@ -8,7 +8,7 @@ public class Levels : Singleton<Levels>
     // Start is called before the first frame update
     void Start()
     {
-        SceneManager.LoadScene("Level1");
+        // SceneManager.LoadScene("Level1");
         // DontDestroyOnLoad();
     }
 
