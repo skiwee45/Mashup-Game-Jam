@@ -98,7 +98,7 @@ public class PortalPlacer : MonoBehaviour
 			endPortal = Instantiate(endPortalPrefab, endPortalPlaceholder.transform.position, Quaternion.identity);
 			
 			//add endportal to startportal
-			startPortal.GetComponent<PortalStart>().portalEnd = endPortal;
+			startPortal.GetComponent<PortalStart>().PortalEnd = endPortal;
 			
 			//update runtime variables
 			fullPortalPlaced = true;

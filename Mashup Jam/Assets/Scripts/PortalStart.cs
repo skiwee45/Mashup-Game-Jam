@@ -6,10 +6,26 @@ using NaughtyAttributes;
 public class PortalStart : MonoBehaviour
 {
 	//config
-	[SerializeField]
 	[Tag]
-	private string playerTag;
-	public GameObject portalEnd;
+	public string playerTag;
+	private GameObject portalEnd;
+	public GameObject PortalEnd
+	{
+		get => portalEnd;
+		set {
+			portalEnd = value;
+			portalEnd.GetComponent<PortalEnd>().portalStart = this;
+			//check if already has player inside it
+			if (originalPlayer == null)
+			{
+				return;
+			}
+			if (GetComponent<BoxCollider2D>().IsTouching(originalPlayer.GetComponent<Collider2D>()))
+			{
+				StartTeleport();
+			}
+		}
+	}
 	private float width;
 	
 	//runtime
@@ -19,7 +35,7 @@ public class PortalStart : MonoBehaviour
 	// Start is called on the frame when a script is enabled just before any of the Update methods is called the first time.
 	protected void Start()
 	{
-		width = GetComponent<BoxCollider2D>().size.x;
+		width = transform.localScale.x;
 	}
 
 	// Sent when another object enters a trigger collider attached to this object (2D physics only).
@@ -27,16 +43,8 @@ public class PortalStart : MonoBehaviour
 	{
 		if (other.CompareTag(playerTag))
 		{
-			StartTeleport(other.gameObject);
-		}
-	}
-	
-	// Sent when another object leaves a trigger collider attached to this object (2D physics only).
-	protected void OnTriggerExit2D(Collider2D other)
-	{
-		if (other.CompareTag(playerTag))
-		{
-			EndTeleport();
+			originalPlayer = other.gameObject;
+			StartTeleport();
 		}
 	}
 	
@@ -50,24 +58,26 @@ public class PortalStart : MonoBehaviour
 		Destroy(portalEnd);
 	}
 	
-	private void StartTeleport(GameObject player)
+	private void StartTeleport()
 	{
 		if (portalEnd == null)
 		{
 			return;
 		}
-		originalPlayer = player;
 		//position away from center of start portal
 		var deltaPos = new Vector3(originalPlayer.transform.position.x - (transform.position.x - (width / 2f)), 0, 0);
 		var portalEndEdgePosition = portalEnd.transform.position + Vector3.right	 * (width / 2f);
-		Debug.Log(portalEndEdgePosition);
+		Debug.Log(width);
 		
 		//spawn copy on the other side with same velocity
-		playerCopy = Instantiate(originalPlayer, portalEndEdgePosition - deltaPos, Quaternion.identity);
+		playerCopy = Instantiate(originalPlayer, portalEndEdgePosition + deltaPos, Quaternion.identity);
 		playerCopy.GetComponent<Rigidbody2D>().velocity = originalPlayer.GetComponent<Rigidbody2D>().velocity;
 	}
 	
-	private void EndTeleport()
+	/// <summary>
+	/// Called by PortalEnd when the player exits
+	/// </summary>
+	public void EndTeleport()
 	{
 		if (originalPlayer == null)
 		{
