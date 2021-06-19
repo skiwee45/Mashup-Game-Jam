@@ -68,6 +68,19 @@ public class PortalPlacer : MonoBehaviour
 		} else
 		{
 			placeholder = endPortalPlaceholder;
+			if (CheckRectangleOverlap(
+					startPortal.transform.position, startPortal.transform.localScale, 
+					pos, startPortal.transform.localScale) || 
+			    CheckLineOverlap(pos.y, startPortal.transform.localScale.y, 
+				startPortal.transform.position.y, startPortal.transform.localScale.y) 
+			    && pos.x > startPortal.transform.position.x)
+			{
+				Vector2 relativePos = startPortal.transform.InverseTransformPoint(pos);
+				var leftPos = new Vector2(-startPortal.transform.localScale.x, relativePos.y);
+				pos = startPortal.transform.TransformPoint(leftPos);
+
+				//pos = GetClosestPosition(pos, startPortal.transform, startPortal.transform.localScale);
+			}			
 			pos = pos.Clamp(Vector2.negativeInfinity, new Vector2(startPortal.transform.position.x, Mathf.Infinity));
 		}
 		
@@ -87,7 +100,7 @@ public class PortalPlacer : MonoBehaviour
 			//create new portal
 			startPortalPlaceholder.SetActive(false);
 			startPortal = Instantiate(startPortalPrefab, startPortalPlaceholder.transform.position, Quaternion.identity);
-			
+
 			//update runtime variables
 			fullPortalPlaced = false;
 			endPortalPlaceholder.SetActive(true);
@@ -96,7 +109,7 @@ public class PortalPlacer : MonoBehaviour
 			//create new portal
 			endPortalPlaceholder.SetActive(false);
 			endPortal = Instantiate(endPortalPrefab, endPortalPlaceholder.transform.position, Quaternion.identity);
-			
+
 			//add endportal to startportal
 			startPortal.GetComponent<PortalStart>().PortalEnd = endPortal;
 			
@@ -104,5 +117,46 @@ public class PortalPlacer : MonoBehaviour
 			fullPortalPlaced = true;
 			startPortalPlaceholder.SetActive(true);
 		}
+	}
+	
+	private static Vector2 GetClosestPosition(Vector2 value, Transform obstruction, Vector2 buffer)
+	{
+		Vector2 relativePos = obstruction.InverseTransformPoint(value);
+		
+		//find closest position
+		var upPos = new Vector2(relativePos.x, buffer.y);
+		var downPos = new Vector2(relativePos.x, -buffer.y);
+		//var rightPos = new Vector2(buffer.x, relativePos.y);
+		var leftPos = new Vector2(-buffer.x, relativePos.y);
+		List<Vector2> positions = new List<Vector2>() {upPos, downPos, leftPos};
+		var shortestDistance = Vector2.Distance(relativePos, upPos);
+		var closestPos = upPos;
+		foreach (var pos in positions)
+		{
+			var dist = Vector2.Distance(relativePos, pos);
+			if (dist < shortestDistance)
+			{
+				shortestDistance = dist;
+				closestPos = pos;
+			}
+		}
+		return obstruction.TransformPoint(closestPos);
+	}
+
+	private static bool CheckRectangleOverlap(Vector2 center1, Vector2 scale1, Vector2 center2,Vector2 scale2)
+	{
+		var horizontalOverlap = CheckLineOverlap(center1.x, scale1.x, center2.x, scale2.x);
+		var verticalOverlap = CheckLineOverlap(center1.y, scale1.y, center2.y, scale2.y);
+		return horizontalOverlap && verticalOverlap;
+	}
+
+	private static bool CheckLineOverlap(float center1, float scale1, float center2, float scale2)
+	{
+		var dist = Mathf.Abs(center1 - center2);
+		if (dist > (scale1 / 2f + scale2 / 2f))
+		{
+			return false;
+		}
+		return true;
 	}
 }
