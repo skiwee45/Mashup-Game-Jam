@@ -10,8 +10,10 @@ public class LevelManager : Singleton<LevelManager>
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("HI");
 	    DontDestroyOnLoad(gameObject);
+    }
+
+    public void startGame() {
         LoadLevel();
     }
 
@@ -25,6 +27,7 @@ public class LevelManager : Singleton<LevelManager>
     }
 
     private void LoadLevel() {
+        Debug.Log("Loading New Level");
         SceneManager.LoadScene("Level" + level);
     }
 }

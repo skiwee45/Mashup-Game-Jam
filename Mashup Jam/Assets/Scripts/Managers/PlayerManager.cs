@@ -9,8 +9,10 @@ public class PlayerManager : Singleton<PlayerManager>
     public string playerTag;
     private Vector3 spawn;
     // Start is called before the first frame update
-    void Start()
+    public void SetSpawnPoint()
     {
+        Debug.Log(playerTag);
+        Debug.Log(GameObject.FindGameObjectWithTag(playerTag));
         spawn = GameObject.FindGameObjectWithTag(playerTag).transform.position;
     }
 
