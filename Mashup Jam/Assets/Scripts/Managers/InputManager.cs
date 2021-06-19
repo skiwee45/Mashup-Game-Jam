@@ -30,8 +30,6 @@ public class InputManager : Singleton<InputManager>
 		controls.Gameplay.Movement.performed += MoveInputHandler;
 		controls.Gameplay.MousePosition.performed += MousePositionInputHandler;
 		controls.Gameplay.PlacePortal.performed += PlacePortalInputHandler;
-
-
 	}
 	
 	//handler methods
