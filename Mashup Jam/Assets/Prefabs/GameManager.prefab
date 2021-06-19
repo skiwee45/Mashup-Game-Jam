@@ -398,7 +398,6 @@ GameObject:
   - component: {fileID: 6951955538645073504}
   - component: {fileID: 2064018613}
   - component: {fileID: 6574336702080946807}
-  - component: {fileID: 4267997089425041243}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -455,6 +454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68ccd3194409db40bfe84c7e47b9501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTag: 
 --- !u!114 &6574336702080946807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,33 +467,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3825ebfa04cba0745b983ac5cfe9563b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!60 &4267997089425041243
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6951955538645073505}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 1}
-      - {x: -0.95105654, y: 0.30901697}
-      - {x: -0.5877852, y: -0.80901706}
-      - {x: 0.58778536, y: -0.80901694}
-      - {x: 0.9510565, y: 0.30901712}
+  level: 1
