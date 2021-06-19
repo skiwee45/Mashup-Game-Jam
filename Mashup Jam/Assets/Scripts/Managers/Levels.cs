@@ -9,7 +9,7 @@ public class Levels : Singleton<Levels>
     void Start()
     {
         SceneManager.LoadScene("Level1");
-        // DontDestroyOnLoad(GetComponent<Canvas>());
+        // DontDestroyOnLoad();
     }
 
     // Update is called once per frame
