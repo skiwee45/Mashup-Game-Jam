@@ -19,13 +19,13 @@ public class LevelManager : Singleton<LevelManager>
 
     void Awake()
     {
-        // if (!i)
-        // {
-        //     i = this;
-        //     DontDestroyOnLoad(gameObject);
-        // }
-        // else
-        //     Destroy(gameObject);
+         if (!i)
+         {
+             i = this;
+             DontDestroyOnLoad(gameObject);
+         }
+         else
+	         DestroyImmediate(gameObject);
     }
 
     public void loadLevel(int level)
