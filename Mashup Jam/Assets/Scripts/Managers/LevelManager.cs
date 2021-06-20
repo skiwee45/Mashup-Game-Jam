@@ -15,6 +15,7 @@ public class LevelManager : Singleton<LevelManager>
     void Start()
     {
         DontDestroyOnLoad(gameObject);
+        SceneManager.LoadScene("MainMenu");
     }
 
     void Awake()
