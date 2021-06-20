@@ -19,13 +19,13 @@ public class LevelManager : Singleton<LevelManager>
 
     void Awake()
     {
-         if (!i)
-         {
-             i = this;
-             DontDestroyOnLoad(gameObject);
-         }
-         else
-	         DestroyImmediate(gameObject);
+        if (!i)
+        {
+            i = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+            DestroyImmediate(gameObject);
     }
 
     public void loadLevel(int level)
@@ -53,6 +53,6 @@ public class LevelManager : Singleton<LevelManager>
 
     private void LoadLevel()
     {
-        SceneManager.LoadScene("Level" + level);
+        SceneManager.LoadScene(level);
     }
 }
