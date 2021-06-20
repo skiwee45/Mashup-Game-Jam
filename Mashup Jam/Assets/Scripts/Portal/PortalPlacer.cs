@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
+using UnityEngine.Tilemaps;
 
 /// <summary>
 /// Takes mouse input and creates portals
@@ -25,6 +26,7 @@ public class PortalPlacer : MonoBehaviour
 	private GameObject startPortalPlaceholder;
 	private GameObject endPortal;
 	private GameObject endPortalPlaceholder;
+	private GameObject currentPlaceholder;
 	
 	// Awake is called when the script instance is being loaded.
 	protected void Awake()
@@ -61,13 +63,12 @@ public class PortalPlacer : MonoBehaviour
 	/// <param name="pos"></param>
 	private void PositionPortal(Vector2 pos)
 	{
-		GameObject placeholder;
 		if (fullPortalPlaced)
 		{
-			placeholder = startPortalPlaceholder;
+			currentPlaceholder = startPortalPlaceholder;
 		} else
 		{
-			placeholder = endPortalPlaceholder;
+			currentPlaceholder = endPortalPlaceholder;
 			if (CheckRectangleOverlap(
 					startPortal.transform.position, startPortal.transform.localScale, 
 					pos, startPortal.transform.localScale) || 
@@ -84,15 +85,26 @@ public class PortalPlacer : MonoBehaviour
 			pos = pos.Clamp(Vector2.negativeInfinity, new Vector2(startPortal.transform.position.x, Mathf.Infinity));
 		}
 		
-		placeholder.transform.position = pos;
+		currentPlaceholder.transform.position = pos;
 	}
 	
 	private void PlacePortal()
 	{
-		Vector2 mousePos;
+		Vector2 pos = currentPlaceholder.transform.position;
+		var allTileMaps = FindObjectsOfType<Tilemap>();
+		foreach (var map in allTileMaps)
+		{
+			if(CheckPointOverlapTilemap(pos, map) || 
+			(CheckPointOverlapTilemap(new Vector2(pos.x, pos.y + 1), map) && 
+			(CheckPointOverlapTilemap(new Vector2(pos.x, pos.y -1), map))))
+			{
+				return;
+			}
+
+		}
+		
 		if (fullPortalPlaced) //start portal
 		{
-			mousePos = startPortalPlaceholder.transform.position;
 			//destroy last portal
 			Destroy(startPortal);
 			startPortal = null;
@@ -101,17 +113,16 @@ public class PortalPlacer : MonoBehaviour
 			
 			//create new portal
 			startPortalPlaceholder.SetActive(false);
-			startPortal = Instantiate(startPortalPrefab, startPortalPlaceholder.transform.position, Quaternion.identity);
+			startPortal = Instantiate(startPortalPrefab, pos, Quaternion.identity);
 
 			//update runtime variables
 			fullPortalPlaced = false;
 			endPortalPlaceholder.SetActive(true);
 		} else //end portal
 		{
-			mousePos = endPortalPlaceholder.transform.position;
 			//create new portal
 			endPortalPlaceholder.SetActive(false);
-			endPortal = Instantiate(endPortalPrefab, endPortalPlaceholder.transform.position, Quaternion.identity);
+			endPortal = Instantiate(endPortalPrefab, pos, Quaternion.identity);
 
 			//add endportal to startportal
 			startPortal.GetComponent<PortalStart>().PortalEnd = endPortal;
@@ -120,7 +131,7 @@ public class PortalPlacer : MonoBehaviour
 			fullPortalPlaced = true;
 			startPortalPlaceholder.SetActive(true);
 		}
-		PositionPortal(mousePos);
+		PositionPortal(pos);
 	}
 	
 	private static Vector2 GetClosestPosition(Vector2 value, Transform obstruction, Vector2 buffer)
@@ -130,7 +141,7 @@ public class PortalPlacer : MonoBehaviour
 		//find closest position
 		var upPos = new Vector2(relativePos.x, buffer.y);
 		var downPos = new Vector2(relativePos.x, -buffer.y);
-		//var rightPos = new Vector2(buffer.x, relativePos.y);
+		var rightPos = new Vector2(buffer.x, relativePos.y);
 		var leftPos = new Vector2(-buffer.x, relativePos.y);
 		List<Vector2> positions = new List<Vector2>() {upPos, downPos, leftPos};
 		var shortestDistance = Vector2.Distance(relativePos, upPos);
@@ -162,5 +173,11 @@ public class PortalPlacer : MonoBehaviour
 			return false;
 		}
 		return true;
+	}
+	
+	private static bool CheckPointOverlapTilemap(Vector2 worldPos, Tilemap map)
+	{
+		var cellPos = map.WorldToCell(worldPos);
+		return map.HasTile(cellPos);
 	}
 }
