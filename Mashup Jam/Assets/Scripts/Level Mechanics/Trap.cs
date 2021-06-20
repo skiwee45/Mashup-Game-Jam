@@ -1,24 +1,77 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// using UnityEditor.EditorGUI;
 
 public class Trap : MonoBehaviour
 {
-    // Start is called before the first frame update
-    // [SerializeField]
-    private float speed = 1F;
+    [SerializeField]
+	private float interval = 1f; //how many seconds per interval
+	[SerializeField]
+	private float speed = 0.5f; //how many second switching takes
 
-    private Vector3 start;
+	private Vector3 upPos;
+	private Vector3 downPos;
+	
+	private bool isTrapUp = true;
+	
+	private Collider2D collider;
+	
+	//timer variables
+	private float timeToChange;
+	private float lerpTime = 0;
 
-    void Start() {
-        start = transform.position;
-    }
+	// Awake is called when the script instance is being loaded.
+	protected void Awake()
+	{
+		upPos = transform.position;
+		downPos = upPos + new Vector3(0, -1, 0);
+		timeToChange = Time.time + interval;
+		collider = GetComponent<Collider2D>();
+	}
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        float y = Mathf.Sin(Time.time * speed) * 0.5F - 0.5F;
-        transform.position = start + new Vector3(0, y, 0);
+	    if (Time.time >= timeToChange)
+	    {
+	    	if (isTrapUp)
+	    	{
+	    		LowerTrap();
+	    	} else
+	    	{
+	    		RaiseTrap();
+	    	}
+	    	
+	    }
     }
+    
+	private void LowerTrap()
+	{
+		if (lerpTime < speed)
+		{
+			var newPos = Vector3.Lerp(upPos, downPos, lerpTime / speed);
+			transform.position = newPos;
+			lerpTime += Time.fixedDeltaTime;
+			return;
+		}
+		collider.enabled = false;
+		lerpTime = 0;
+		timeToChange = Time.time + interval;
+		isTrapUp = false;
+	}
+	
+	private void RaiseTrap()
+	{
+		if (lerpTime < speed)
+		{
+			var newPos = Vector3.Lerp(downPos, upPos, lerpTime / speed);
+			transform.position = newPos;
+			lerpTime += Time.fixedDeltaTime;
+			return;
+		}
+		collider.enabled = true;
+		lerpTime = 0;
+		timeToChange = Time.time + interval;
+		isTrapUp = true;
+	}
 }
