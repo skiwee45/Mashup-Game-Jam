@@ -11,7 +11,6 @@ public class LevelManager : Singleton<LevelManager>
 
     public void loadLevel(Text text)
     {
-        Debug.Log("Loading from mian");
         level = int.Parse(text.text);
         LoadLevel();
     }
