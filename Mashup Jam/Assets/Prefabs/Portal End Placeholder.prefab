@@ -12,12 +12,32 @@ PrefabInstance:
       value: Portal End Placeholder
       objectReference: {fileID: 0}
     - target: {fileID: 8599011350058155462, guid: f1a7919401f1f874a83131e275270cb6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2814982566867383870, guid: 34836c91cee3eaf48adea52e5191973f, type: 3}
+    - target: {fileID: 8599011350058155462, guid: f1a7919401f1f874a83131e275270cb6, type: 3}
       propertyPath: m_Color.a
-      value: 0.49019608
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599011350058155462, guid: f1a7919401f1f874a83131e275270cb6, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599011350058155462, guid: f1a7919401f1f874a83131e275270cb6, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599011350058155462, guid: f1a7919401f1f874a83131e275270cb6, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8599011350058155463, guid: f1a7919401f1f874a83131e275270cb6, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599011350058155463, guid: f1a7919401f1f874a83131e275270cb6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8599011350058155463, guid: f1a7919401f1f874a83131e275270cb6, type: 3}
       propertyPath: m_LocalPosition.x
