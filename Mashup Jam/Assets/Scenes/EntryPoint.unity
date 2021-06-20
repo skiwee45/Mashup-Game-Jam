@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 126389595, guid: 164e985126606964fbbf529b41a9e34c, type: 3}
+      propertyPath: m_Text
+      value: "\u2261"
+      objectReference: {fileID: 0}
     - target: {fileID: 907639403, guid: 164e985126606964fbbf529b41a9e34c, type: 3}
       propertyPath: nav
       value: 
@@ -181,6 +185,10 @@ PrefabInstance:
     - target: {fileID: 6951955538645073511, guid: 164e985126606964fbbf529b41a9e34c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182540231029363661, guid: 164e985126606964fbbf529b41a9e34c, type: 3}
+      propertyPath: m_Text
+      value: "\u21BB"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 164e985126606964fbbf529b41a9e34c, type: 3}
