@@ -1484,7 +1484,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -1998,6 +1998,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3292647060409978380, guid: c1d332d5452c11447a4498e51374f7d0, type: 3}
+      propertyPath: allTileMaps.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292647060409978380, guid: c1d332d5452c11447a4498e51374f7d0, type: 3}
+      propertyPath: allTileMaps.Array.data[0]
+      value: 
+      objectReference: {fileID: 315238641}
+    - target: {fileID: 3292647060409978380, guid: c1d332d5452c11447a4498e51374f7d0, type: 3}
+      propertyPath: allTileMaps.Array.data[1]
+      value: 
+      objectReference: {fileID: 2133134651}
+    - target: {fileID: 3292647060409978380, guid: c1d332d5452c11447a4498e51374f7d0, type: 3}
+      propertyPath: allTileMaps.Array.data[2]
+      value: 
+      objectReference: {fileID: 1174354849}
     - target: {fileID: 3292647060409978381, guid: c1d332d5452c11447a4498e51374f7d0, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -2236,7 +2252,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
