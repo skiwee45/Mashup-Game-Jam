@@ -27,7 +27,8 @@ public class LevelManager : Singleton<LevelManager>
     }
 
     private void LoadLevel()
-    {
-        SceneManager.LoadScene(level + 1);
+	{
+		GetComponent<KeyDoorManager>().Reset();
+	    SceneManager.LoadScene(level + 1);
     }
 }

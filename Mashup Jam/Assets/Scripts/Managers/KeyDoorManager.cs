@@ -5,6 +5,8 @@ using NaughtyAttributes;
 
 public class KeyDoorManager : Singleton<KeyDoorManager>
 {
+	[SerializeField]
+	[ReorderableList]
 	private List<string> keys;
 	
 	// Awake is called when the script instance is being loaded.

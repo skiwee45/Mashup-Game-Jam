@@ -438,7 +438,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6711776499436744846, guid: 8daa7c8ac8e289e429c9bb16b4f630f9, type: 3}
       propertyPath: m_Name
-      value: Door
+      value: Door1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8daa7c8ac8e289e429c9bb16b4f630f9, type: 3}
@@ -624,7 +624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2967896195026630567, guid: fe94568004ee71f4c996efd2cf60493e, type: 3}
       propertyPath: m_Name
-      value: Key
+      value: Key2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe94568004ee71f4c996efd2cf60493e, type: 3}
@@ -4349,7 +4349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2967896195026630567, guid: fe94568004ee71f4c996efd2cf60493e, type: 3}
       propertyPath: m_Name
-      value: Key
+      value: Key1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe94568004ee71f4c996efd2cf60493e, type: 3}
@@ -4794,7 +4794,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6711776499436744846, guid: 8daa7c8ac8e289e429c9bb16b4f630f9, type: 3}
       propertyPath: m_Name
-      value: Door
+      value: Door2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8daa7c8ac8e289e429c9bb16b4f630f9, type: 3}
