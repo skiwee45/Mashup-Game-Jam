@@ -16,7 +16,6 @@ public class KeyDoorManager : Singleton<KeyDoorManager>
 	public void AddKey(string keyName)
 	{
 		keys.Add(keyName);
-
 	}
 	
 	public bool GetKeyStatus(string keyName)

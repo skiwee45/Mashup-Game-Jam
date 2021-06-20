@@ -95,8 +95,8 @@ public class PortalPlacer : MonoBehaviour
 		foreach (var map in allTileMaps)
 		{
 			if(CheckPointOverlapTilemap(pos, map) || 
-			(CheckPointOverlapTilemap(new Vector2(pos.x, pos.y + 1), map) && 
-			(CheckPointOverlapTilemap(new Vector2(pos.x, pos.y -1), map))))
+				CheckPointOverlapTilemap(new Vector2(pos.x, pos.y + 0.5f), map) || 
+				CheckPointOverlapTilemap(new Vector2(pos.x, pos.y - 0.5f), map))
 			{
 				return;
 			}
