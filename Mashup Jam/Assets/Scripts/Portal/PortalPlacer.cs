@@ -92,11 +92,12 @@ public class PortalPlacer : MonoBehaviour
 	{
 		Vector2 pos = currentPlaceholder.transform.position;
 		var allTileMaps = FindObjectsOfType<Tilemap>();
+		var xOffset = fullPortalPlaced ? -0.5f : 0.5f;
 		foreach (var map in allTileMaps)
 		{
-			if(CheckPointOverlapTilemap(pos, map) || 
-				CheckPointOverlapTilemap(new Vector2(pos.x, pos.y + 0.5f), map) || 
-				CheckPointOverlapTilemap(new Vector2(pos.x, pos.y - 0.5f), map))
+			if(CheckPointOverlapTilemap(new Vector2(pos.x + xOffset, pos.y), map) || 
+				CheckPointOverlapTilemap(new Vector2(pos.x + xOffset, pos.y + 0.5f), map) || 
+				CheckPointOverlapTilemap(new Vector2(pos.x + xOffset, pos.y - 0.5f), map))
 			{
 				return;
 			}
