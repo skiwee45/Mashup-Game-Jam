@@ -9,18 +9,20 @@ public class LevelManager : Singleton<LevelManager>
 {
     [SerializeField]
     private int level = 1;
-
-    [SerializeField]
-    private Text levelSelection;
     // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(gameObject);
     }
 
-    public void startGame()
+    public void loadLevel(int level) {
+        this.level = level;
+        LoadLevel();
+    }
+
+    public void loadLevel(Text text)
     {
-        level = int.Parse(levelSelection.text);
+        this.level = int.Parse(text.text);
         LoadLevel();
     }
 
@@ -37,6 +39,7 @@ public class LevelManager : Singleton<LevelManager>
 
     private void LoadLevel()
     {
+        gameObject.SetActive(true);
         Debug.Log("Loading New Level");
         IEnumerator coroutine = LoadScene();
         StartCoroutine(coroutine);
