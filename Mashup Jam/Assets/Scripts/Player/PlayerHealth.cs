@@ -13,11 +13,10 @@ public class PlayerHealth : MonoBehaviour
         //dangerous layer
         if (layer == 6)
         {
-            PlayerManager.Instance.Respawn();
+            Respawn();
         }
         else if (layer == 7)
         {
-            // Debug.Log("Touched goal");
             LevelManager.Instance.Next();
         }
     }
@@ -26,7 +25,12 @@ public class PlayerHealth : MonoBehaviour
     {
         if (transform.position.y < -15)
         {
-            PlayerManager.Instance.Respawn();
+            Respawn();
         }
+    }
+
+    void Respawn()
+    {
+        LevelManager.Instance.Restart();
     }
 }
