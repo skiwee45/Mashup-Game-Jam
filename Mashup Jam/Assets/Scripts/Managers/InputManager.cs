@@ -29,6 +29,7 @@ public class InputManager : Singleton<InputManager>
 		//attach HandlerMethods to events in the controls
 		controls.Gameplay.Movement.performed += MoveInputHandler;
 		controls.Gameplay.MousePosition.performed += MousePositionInputHandler;
+		controls.Gameplay.MousePosition.canceled += MousePositionInputHandler;
 		controls.Gameplay.PlacePortal.performed += PlacePortalInputHandler;
 	}
 	
