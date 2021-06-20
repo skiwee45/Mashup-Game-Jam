@@ -1668,10 +1668,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap
       objectReference: {fileID: 0}
-    - target: {fileID: 7553204634589679844, guid: 3a6aff5d82136724da13a1d257f9a83a, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a6aff5d82136724da13a1d257f9a83a, type: 3}
 --- !u!4 &7553204635212050627 stripped
