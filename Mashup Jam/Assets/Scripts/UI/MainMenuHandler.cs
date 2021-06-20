@@ -17,7 +17,7 @@ public class MainMenuHandler : MonoBehaviour
     void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
-        // nav.SetActive(false);
+        nav.SetActive(false);
 
         SceneManager.LoadScene(mainMenu);
     }
@@ -25,6 +25,6 @@ public class MainMenuHandler : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         bool menu = scene.name == mainMenu;
-        // nav.SetActive(!menu);
+        nav.SetActive(!menu);
     }
 }
