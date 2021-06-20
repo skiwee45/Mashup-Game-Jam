@@ -7,17 +7,12 @@ using UnityEngine.UI;
 
 public class LevelManager : Singleton<LevelManager>
 {
-    [SerializeField]
-    private int level = 1;
-    public void loadLevel(int level)
-    {
-        this.level = level;
-        LoadLevel();
-    }
+    private static int level;
 
     public void loadLevel(Text text)
     {
-        this.level = int.Parse(text.text);
+        Debug.Log("Loading from mian");
+        level = int.Parse(text.text);
         LoadLevel();
     }
 
@@ -34,6 +29,7 @@ public class LevelManager : Singleton<LevelManager>
 
     private void LoadLevel()
     {
+        Debug.Log(level);
         SceneManager.LoadScene(level + 1);
     }
 }
