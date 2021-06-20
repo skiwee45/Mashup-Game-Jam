@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class LevelManager : Singleton<LevelManager>
 {
+    public static LevelManager i;
+
     [SerializeField]
     private int level = 1;
     // Start is called before the first frame update
@@ -15,7 +17,19 @@ public class LevelManager : Singleton<LevelManager>
         DontDestroyOnLoad(gameObject);
     }
 
-    public void loadLevel(int level) {
+    void Awake()
+    {
+        // if (!i)
+        // {
+        //     i = this;
+        //     DontDestroyOnLoad(gameObject);
+        // }
+        // else
+        //     Destroy(gameObject);
+    }
+
+    public void loadLevel(int level)
+    {
         this.level = level;
         LoadLevel();
     }
@@ -39,8 +53,7 @@ public class LevelManager : Singleton<LevelManager>
 
     private void LoadLevel()
     {
-        gameObject.SetActive(true);
-        Debug.Log("Loading New Level");
+        
         IEnumerator coroutine = LoadScene();
         StartCoroutine(coroutine);
     }
@@ -53,8 +66,7 @@ public class LevelManager : Singleton<LevelManager>
         while (!asyncLoadLevel.isDone)
             yield return null;
         // Wait a frame so every Awake and Start method is called
-
-        PlayerManager.Instance.SetSpawnPoint();
+        // PlayerManager.Instance.SetSpawnPoint();
         yield return new WaitForEndOfFrame();
     }
 }
