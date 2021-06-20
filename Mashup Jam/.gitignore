@@ -63,3 +63,5 @@ crashlytics-build.properties
 
 # User Settings
 UserSettings
+
+.idea
