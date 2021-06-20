@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using NaughtyAttributes;
+using UnityEngine.UI;
 
 public class LevelManager : Singleton<LevelManager>
 {
     [SerializeField]
     private int level = 1;
+
+    [SerializeField]
+    private Text levelSelection;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +20,7 @@ public class LevelManager : Singleton<LevelManager>
 
     public void startGame()
     {
+        level = int.Parse(levelSelection.text);
         LoadLevel();
     }
 
