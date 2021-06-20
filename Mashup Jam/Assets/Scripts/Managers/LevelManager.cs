@@ -53,20 +53,6 @@ public class LevelManager : Singleton<LevelManager>
 
     private void LoadLevel()
     {
-        
-        IEnumerator coroutine = LoadScene();
-        StartCoroutine(coroutine);
-    }
-
-    private IEnumerator LoadScene()
-    {
-        // Start loading the scene
-        AsyncOperation asyncLoadLevel = SceneManager.LoadSceneAsync("Level" + level, LoadSceneMode.Single);
-        // Wait until the level finish loading
-        while (!asyncLoadLevel.isDone)
-            yield return null;
-        // Wait a frame so every Awake and Start method is called
-        // PlayerManager.Instance.SetSpawnPoint();
-        yield return new WaitForEndOfFrame();
+        SceneManager.LoadScene("Level" + level);
     }
 }
