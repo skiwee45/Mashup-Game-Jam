@@ -1,18 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
+using UnityEngine.SceneManagement;
 
 public class MainMenuHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField]
+    private GameObject nav;
+
+    [SerializeField]
+    private string mainMenu;
+
+    private static GameObject og;
+
     void Start()
     {
-        
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        // nav.SetActive(false);
+
+        SceneManager.LoadScene(mainMenu);
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        
+        bool menu = scene.name == mainMenu;
+        // nav.SetActive(!menu);
     }
 }
