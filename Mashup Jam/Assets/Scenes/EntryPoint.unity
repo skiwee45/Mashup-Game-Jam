@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -130,10 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 907639403, guid: 164e985126606964fbbf529b41a9e34c, type: 3}
-      propertyPath: nav
-      value: 
-      objectReference: {fileID: 373992111}
     - target: {fileID: 6951955538645073505, guid: 164e985126606964fbbf529b41a9e34c, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -184,8 +180,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 164e985126606964fbbf529b41a9e34c, type: 3}
---- !u!1 &373992111 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4918020871445369144, guid: 164e985126606964fbbf529b41a9e34c, type: 3}
-  m_PrefabInstance: {fileID: 373992110}
-  m_PrefabAsset: {fileID: 0}
