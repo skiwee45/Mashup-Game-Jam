@@ -15,8 +15,10 @@ public class Door : MonoBehaviour
 	// Sent when an incoming collider makes contact with this object's collider (2D physics only).
 	protected void OnCollisionEnter2D(Collision2D collisionInfo)
 	{
+		Debug.Log("collision");
 		if (collisionInfo.gameObject.CompareTag(playerTag))
 		{
+			Debug.Log("player collision");
 			if (KeyDoorManager.Instance.GetKeyStatus(key.name))
 			{
 				OpenDoor();
@@ -33,5 +35,6 @@ public class Door : MonoBehaviour
 		{
 			spriteRenderer.color = newColor;
 		}
+		Debug.Log("opened door");
 	}
 }
