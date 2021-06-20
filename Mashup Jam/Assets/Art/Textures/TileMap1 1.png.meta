@@ -136,12 +136,12 @@ TextureImporter:
       name: TileMap1 1_0
       rect:
         serializedVersion: 2
-        x: 7924
-        y: 6
-        width: 920
-        height: 2646
+        x: 7967
+        y: 46
+        width: 853
+        height: 2565
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -157,12 +157,12 @@ TextureImporter:
       name: TileMap1 1_1
       rect:
         serializedVersion: 2
-        x: 8835
-        y: 6
-        width: 877
-        height: 2638
+        x: 8851
+        y: 36
+        width: 839
+        height: 2576
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
