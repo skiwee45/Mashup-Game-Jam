@@ -9,7 +9,6 @@ public class LevelManager : Singleton<LevelManager>
 {
     [SerializeField]
     private int level = 1;
-    // Start is called before the first frame update
     public void loadLevel(int level)
     {
         this.level = level;
@@ -35,6 +34,6 @@ public class LevelManager : Singleton<LevelManager>
 
     private void LoadLevel()
     {
-        SceneManager.LoadScene(level);
+        SceneManager.LoadScene(level + 1);
     }
 }
