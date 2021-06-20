@@ -878,6 +878,30 @@ PrefabInstance:
       propertyPath: key
       value: 
       objectReference: {fileID: 238393297}
+    - target: {fileID: 849502924784386039, guid: 8daa7c8ac8e289e429c9bb16b4f630f9, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 849502924784386039, guid: 8daa7c8ac8e289e429c9bb16b4f630f9, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 849502924784386039, guid: 8daa7c8ac8e289e429c9bb16b4f630f9, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2443558307547794287, guid: 8daa7c8ac8e289e429c9bb16b4f630f9, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2443558307547794287, guid: 8daa7c8ac8e289e429c9bb16b4f630f9, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2443558307547794287, guid: 8daa7c8ac8e289e429c9bb16b4f630f9, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6302594238264757619, guid: 8daa7c8ac8e289e429c9bb16b4f630f9, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -925,6 +949,18 @@ PrefabInstance:
     - target: {fileID: 6711776499436744846, guid: 8daa7c8ac8e289e429c9bb16b4f630f9, type: 3}
       propertyPath: m_Name
       value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 6760304379084957261, guid: 8daa7c8ac8e289e429c9bb16b4f630f9, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6760304379084957261, guid: 8daa7c8ac8e289e429c9bb16b4f630f9, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6760304379084957261, guid: 8daa7c8ac8e289e429c9bb16b4f630f9, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8daa7c8ac8e289e429c9bb16b4f630f9, type: 3}

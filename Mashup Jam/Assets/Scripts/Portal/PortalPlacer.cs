@@ -28,6 +28,9 @@ public class PortalPlacer : MonoBehaviour
 	private GameObject endPortalPlaceholder;
 	private GameObject currentPlaceholder;
 	
+	//debug
+	private Vector2[] posChecks;
+	
 	// Awake is called when the script instance is being loaded.
 	protected void Awake()
 	{
@@ -93,11 +96,12 @@ public class PortalPlacer : MonoBehaviour
 		Vector2 pos = currentPlaceholder.transform.position;
 		var allTileMaps = FindObjectsOfType<Tilemap>();
 		var xOffset = fullPortalPlaced ? -0.5f : 0.5f;
+		posChecks = new Vector2[]{new Vector2(pos.x + xOffset, pos.y), new Vector2(pos.x + xOffset, pos.y + 0.5f), new Vector2(pos.x + xOffset, pos.y - 0.5f)};
 		foreach (var map in allTileMaps)
 		{
-			if(CheckPointOverlapTilemap(new Vector2(pos.x + xOffset, pos.y), map) || 
-				CheckPointOverlapTilemap(new Vector2(pos.x + xOffset, pos.y + 0.5f), map) || 
-				CheckPointOverlapTilemap(new Vector2(pos.x + xOffset, pos.y - 0.5f), map))
+			if(CheckPointOverlapTilemap(posChecks[0], map) || 
+				CheckPointOverlapTilemap(posChecks[1], map) || 
+				CheckPointOverlapTilemap(posChecks[2], map))
 			{
 				return;
 			}
@@ -180,5 +184,18 @@ public class PortalPlacer : MonoBehaviour
 	{
 		var cellPos = map.WorldToCell(worldPos);
 		return map.HasTile(cellPos);
+	}
+	
+	// Implement OnDrawGizmos if you want to draw gizmos that are also pickable and always drawn.
+	protected void OnDrawGizmos()
+	{
+		if (posChecks == null)
+		{
+			return;
+		}
+		foreach (var pos in posChecks)
+		{
+			Gizmos.DrawSphere(pos, 0.1f);
+		}
 	}
 }

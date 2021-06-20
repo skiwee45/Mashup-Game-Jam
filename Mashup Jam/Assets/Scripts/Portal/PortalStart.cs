@@ -10,6 +10,7 @@ public class PortalStart : MonoBehaviour
 	public string playerTag;
 	[Tag]
 	public string teleportingPlayerTag;
+	public string playerName= "Player";
 	[Layer]
 	public int teleportingPlayerLayer;
 	private GameObject portalEnd;
@@ -18,7 +19,6 @@ public class PortalStart : MonoBehaviour
 		get => portalEnd;
 		set {
 			portalEnd = value;
-			//portalEnd.GetComponent<PortalEnd>().portalStart = this;
 			//check if already has player inside it
 			if (originalPlayer == null)
 			{
@@ -35,6 +35,7 @@ public class PortalStart : MonoBehaviour
 	//runtime
 	private GameObject originalPlayer = null; //set to null if not in the middle of teleport
 	private GameObject playerCopy;
+	private GameObject teleportingPlayer = null;
 
 	// Start is called on the frame when a script is enabled just before any of the Update methods is called the first time.
 	protected void Start()
@@ -57,6 +58,7 @@ public class PortalStart : MonoBehaviour
 	{
 		if (other.CompareTag(teleportingPlayerTag))
 		{
+			teleportingPlayer = other.gameObject;
 			EndTeleport();
 		}
 	}
@@ -64,10 +66,8 @@ public class PortalStart : MonoBehaviour
 	// This function is called when the MonoBehaviour will be destroyed.
 	protected void OnDestroy()
 	{
-		if (originalPlayer != null)
-		{
-			EndTeleport();
-		}
+		EndTeleport();
+		CleanupPortal();
 		Destroy(portalEnd);
 	}
 	
@@ -98,16 +98,22 @@ public class PortalStart : MonoBehaviour
 	/// </summary>
 	public void EndTeleport()
 	{
-		if (originalPlayer == null || playerCopy == null)
-		{
-			return;
-		}
-		//delete this player
-		var name = originalPlayer.name;
-		Destroy(originalPlayer);
-		originalPlayer = null;
+		//delete this player=
+		Destroy(teleportingPlayer);
 			
 		//change name of copy
-		playerCopy.name = name;
+		if (playerCopy != null)
+		{
+			playerCopy.name = playerName;
+		}
+	}
+	
+	public void CleanupPortal()
+	{
+		var players = GameObject.FindGameObjectsWithTag(teleportingPlayerTag);
+		foreach (var player in players)
+		{
+			Destroy(player);
+		}
 	}
 }
