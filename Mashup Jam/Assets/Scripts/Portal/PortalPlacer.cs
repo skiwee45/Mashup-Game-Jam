@@ -18,6 +18,9 @@ public class PortalPlacer : MonoBehaviour
 	private GameObject endPortalPrefab;
 	[SerializeField]
 	private GameObject endPortalPlaceholderPrefab;
+	[SerializeField]
+	[ReorderableList]
+	private Tilemap[] allTileMaps;
 	
 	//runtime
 	private bool fullPortalPlaced = true;
@@ -94,7 +97,6 @@ public class PortalPlacer : MonoBehaviour
 	private void PlacePortal()
 	{
 		Vector2 pos = currentPlaceholder.transform.position;
-		var allTileMaps = FindObjectsOfType<Tilemap>();
 		var xOffset = fullPortalPlaced ? -0.5f : 0.5f;
 		posChecks = new Vector2[]{new Vector2(pos.x + xOffset, pos.y), new Vector2(pos.x + xOffset, pos.y + 0.5f), new Vector2(pos.x + xOffset, pos.y - 0.5f)};
 		foreach (var map in allTileMaps)
@@ -183,6 +185,11 @@ public class PortalPlacer : MonoBehaviour
 	private static bool CheckPointOverlapTilemap(Vector2 worldPos, Tilemap map)
 	{
 		var cellPos = map.WorldToCell(worldPos);
+		var output = map.HasTile(cellPos);
+		if (output)
+		{
+			Debug.Log("Touching tile: " + map.GetTile(cellPos));
+		}
 		return map.HasTile(cellPos);
 	}
 	

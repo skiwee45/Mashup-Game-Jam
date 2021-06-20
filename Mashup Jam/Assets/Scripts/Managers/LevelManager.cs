@@ -28,7 +28,6 @@ public class LevelManager : Singleton<LevelManager>
 
     private void LoadLevel()
     {
-        Debug.Log(level);
         SceneManager.LoadScene(level + 1);
     }
 }
