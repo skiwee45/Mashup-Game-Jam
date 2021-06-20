@@ -89,8 +89,10 @@ public class PortalPlacer : MonoBehaviour
 	
 	private void PlacePortal()
 	{
+		Vector2 mousePos;
 		if (fullPortalPlaced) //start portal
 		{
+			mousePos = startPortalPlaceholder.transform.position;
 			//destroy last portal
 			Destroy(startPortal);
 			startPortal = null;
@@ -106,6 +108,7 @@ public class PortalPlacer : MonoBehaviour
 			endPortalPlaceholder.SetActive(true);
 		} else //end portal
 		{
+			mousePos = endPortalPlaceholder.transform.position;
 			//create new portal
 			endPortalPlaceholder.SetActive(false);
 			endPortal = Instantiate(endPortalPrefab, endPortalPlaceholder.transform.position, Quaternion.identity);
@@ -117,6 +120,7 @@ public class PortalPlacer : MonoBehaviour
 			fullPortalPlaced = true;
 			startPortalPlaceholder.SetActive(true);
 		}
+		PositionPortal(mousePos);
 	}
 	
 	private static Vector2 GetClosestPosition(Vector2 value, Transform obstruction, Vector2 buffer)

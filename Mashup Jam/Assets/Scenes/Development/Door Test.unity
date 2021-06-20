@@ -320,10 +320,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Key
       objectReference: {fileID: 0}
-    - target: {fileID: 4784640389013399246, guid: fe94568004ee71f4c996efd2cf60493e, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe94568004ee71f4c996efd2cf60493e, type: 3}
 --- !u!4 &697572145 stripped
@@ -886,10 +882,6 @@ PrefabInstance:
       propertyPath: key
       value: 
       objectReference: {fileID: 238393297}
-    - target: {fileID: 1868448702, guid: 8daa7c8ac8e289e429c9bb16b4f630f9, type: 3}
-      propertyPath: playerTag
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 6302594238264757619, guid: 8daa7c8ac8e289e429c9bb16b4f630f9, type: 3}
       propertyPath: m_RootOrder
       value: 0
