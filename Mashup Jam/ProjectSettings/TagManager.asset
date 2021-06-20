@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Teleporting Player
+  - Key
   layers:
   - Default
   - TransparentFX

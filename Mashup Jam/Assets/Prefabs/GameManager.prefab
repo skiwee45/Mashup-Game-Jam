@@ -511,7 +511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -625,7 +625,7 @@ GameObject:
   - component: {fileID: 6951955538645073504}
   - component: {fileID: 2064018613}
   - component: {fileID: 6574336702080946807}
-  - component: {fileID: 1374379631}
+  - component: {fileID: 5502167988044640658}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameController
@@ -696,7 +696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
---- !u!114 &1374379631
+--- !u!114 &5502167988044640658
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -705,8 +705,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6951955538645073505}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f468325f6f5c0b94e9327a0c0e2b3fc5, type: 3}
+  m_Script: {fileID: 11500000, guid: a31698c361b695541aab1563c7925b99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nav: {fileID: 4918020871445369144}
-  mainMenu: MainMenu

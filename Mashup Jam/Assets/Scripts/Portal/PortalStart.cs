@@ -98,7 +98,7 @@ public class PortalStart : MonoBehaviour
 	/// </summary>
 	public void EndTeleport()
 	{
-		if (originalPlayer == null)
+		if (originalPlayer == null || playerCopy == null)
 		{
 			return;
 		}
