@@ -195,10 +195,6 @@ public class PortalPlacer : MonoBehaviour
 	{
 		var cellPos = map.WorldToCell(worldPos);
 		var output = map.HasTile(cellPos);
-		if (output)
-		{
-			Debug.Log("Touching tile: " + map.GetTile(cellPos));
-		}
 		return map.HasTile(cellPos);
 	}
 	
