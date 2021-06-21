@@ -8882,7 +8882,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3292647060409978380, guid: c1d332d5452c11447a4498e51374f7d0, type: 3}
       propertyPath: allTileMaps.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3292647060409978380, guid: c1d332d5452c11447a4498e51374f7d0, type: 3}
       propertyPath: allTileMaps.Array.data[0]
@@ -8891,7 +8891,7 @@ PrefabInstance:
     - target: {fileID: 3292647060409978380, guid: c1d332d5452c11447a4498e51374f7d0, type: 3}
       propertyPath: allTileMaps.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1174354849}
     - target: {fileID: 3292647060409978380, guid: c1d332d5452c11447a4498e51374f7d0, type: 3}
       propertyPath: allTileMaps.Array.data[2]
       value: 
