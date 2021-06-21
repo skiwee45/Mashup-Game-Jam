@@ -13,10 +13,12 @@ public class PlayerHealth : MonoBehaviour
         //dangerous layer
         if (layer == 6)
         {
+            SoundController.PlaySound(SoundController.Sound.Death);
             Respawn();
         }
         else if (layer == 7)
         {
+            SoundController.PlaySound(SoundController.Sound.Win);
             LevelManager.Instance.Next();
         }
     }

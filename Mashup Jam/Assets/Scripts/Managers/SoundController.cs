@@ -2,26 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundManager
+public static class SoundController
 {
+    [SerializeField]
 
-    public static SoundAudioClip[] soundAudioClipArray;
-
-    [System.Serializable]
-    public class SoundAudioClip
-    {
-        public SoundManager.Sound sound;
-        public AudioClip audioClip;
-    }
     public enum Sound
     {
         PlayerMove,
-        Treasure,
+        Death,
+        Win,
+        Portal,
     }
 
     private static Dictionary<Sound, float> soundTimerDictionary;
 
-    public static void Initialize() {
+    public static void Initialize()
+    {
         soundTimerDictionary = new Dictionary<Sound, float>();
         soundTimerDictionary[Sound.PlayerMove] = 0f;
     }
@@ -66,7 +62,7 @@ public class SoundManager
 
     private static AudioClip GetAudioClip(Sound sound)
     {
-        foreach (SoundAudioClip soundAudioClip in soundAudioClipArray)
+        foreach (GameAssets.SoundAudioClip soundAudioClip in GameAssets.i.soundAudioClipArray)
         {
             if (soundAudioClip.sound == sound)
             {

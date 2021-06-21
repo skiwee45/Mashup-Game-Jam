@@ -91,7 +91,9 @@ public class PortalStart : MonoBehaviour
 		playerRB.velocity *= Vector2.right;
 		originalPlayer.tag = teleportingPlayerTag;
 		originalPlayer.layer = teleportingPlayerLayer;
-	}
+
+        SoundController.PlaySound(SoundController.Sound.Portal);
+    }
 	
 	/// <summary>
 	/// Called by PortalEnd when the player exits
