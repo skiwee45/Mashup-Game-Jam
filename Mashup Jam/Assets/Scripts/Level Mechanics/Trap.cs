@@ -8,6 +8,8 @@ public class Trap : MonoBehaviour
 	private float interval = 1f; //how many seconds per interval
 	[SerializeField]
 	private float speed = 0.5f; //how many second switching takes
+	[SerializeField]
+	private	GameObject UpTrap;
 
 	private Vector3 upPos;
 	private Vector3 downPos;
@@ -23,10 +25,10 @@ public class Trap : MonoBehaviour
 	// Awake is called when the script instance is being loaded.
 	protected void Awake()
 	{
-		upPos = transform.position;
+		upPos = UpTrap.transform.position;
 		downPos = upPos + new Vector3(0, -1, 0);
 		timeToChange = Time.time + interval;
-		collider = GetComponent<Collider2D>();
+		collider = UpTrap.GetComponent<Collider2D>();
 	}
 
     // Update is called once per frame
@@ -50,7 +52,7 @@ public class Trap : MonoBehaviour
 		if (lerpTime < speed)
 		{
 			var newPos = Vector3.Lerp(upPos, downPos, lerpTime / speed);
-			transform.position = newPos;
+			UpTrap.transform.position = newPos;
 			lerpTime += Time.fixedDeltaTime;
 			return;
 		}
@@ -65,7 +67,7 @@ public class Trap : MonoBehaviour
 		if (lerpTime < speed)
 		{
 			var newPos = Vector3.Lerp(downPos, upPos, lerpTime / speed);
-			transform.position = newPos;
+			UpTrap.transform.position = newPos;
 			lerpTime += Time.fixedDeltaTime;
 			return;
 		}
