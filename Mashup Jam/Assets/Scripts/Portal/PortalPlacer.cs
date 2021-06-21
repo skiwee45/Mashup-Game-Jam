@@ -30,6 +30,7 @@ public class PortalPlacer : MonoBehaviour
 	private GameObject endPortal;
 	private GameObject endPortalPlaceholder;
 	private GameObject currentPlaceholder;
+	private bool canPlacePortal = true;
 	
 	//debug
 	private Vector2[] posChecks;
@@ -91,25 +92,33 @@ public class PortalPlacer : MonoBehaviour
 			pos = pos.Clamp(Vector2.negativeInfinity, new Vector2(startPortal.transform.position.x, Mathf.Infinity));
 		}
 		
-		currentPlaceholder.transform.position = pos;
-	}
-	
-	private void PlacePortal()
-	{
-		Vector2 pos = currentPlaceholder.transform.position;
 		var xOffset = fullPortalPlaced ? -0.5f : 0.5f;
 		posChecks = new Vector2[]{new Vector2(pos.x + xOffset, pos.y), new Vector2(pos.x + xOffset, pos.y + 0.5f), new Vector2(pos.x + xOffset, pos.y - 0.5f)};
+		currentPlaceholder.transform.position = pos;
 		foreach (var map in allTileMaps)
 		{
 			if(CheckPointOverlapTilemap(posChecks[0], map) || 
 				CheckPointOverlapTilemap(posChecks[1], map) || 
 				CheckPointOverlapTilemap(posChecks[2], map))
 			{
+				TurnPlaceholderRed();
+				canPlacePortal = false;
 				return;
 			}
 
 		}
+		TurnPlaceholderNormal();
+		canPlacePortal = true;
+	}
+	
+	private void PlacePortal()
+	{
+		if (!canPlacePortal)
+		{
+			return;
+		}
 		
+		Vector2 pos = currentPlaceholder.transform.position;
 		if (fullPortalPlaced) //start portal
 		{
 			//destroy last portal
@@ -204,5 +213,14 @@ public class PortalPlacer : MonoBehaviour
 		{
 			Gizmos.DrawSphere(pos, 0.1f);
 		}
+	}
+	
+	private void TurnPlaceholderRed()
+	{
+		currentPlaceholder.transform.GetChild(0).gameObject.SetActive(true);
+	}
+	private void TurnPlaceholderNormal()
+	{
+		currentPlaceholder.transform.GetChild(0).gameObject.SetActive(false);
 	}
 }
