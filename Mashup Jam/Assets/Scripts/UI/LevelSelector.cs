@@ -11,7 +11,7 @@ public class LevelSelector : MonoBehaviour
     private Text levelSelection;
     void Start()
     {
-        lastLevel = SceneManager.sceneCountInBuildSettings - 3;
+        lastLevel = SceneManager.sceneCountInBuildSettings - 4;
     }
     public void Forward()
     {
