@@ -92,7 +92,7 @@ public class PortalStart : MonoBehaviour
 		originalPlayer.tag = teleportingPlayerTag;
 		originalPlayer.layer = teleportingPlayerLayer;
 
-        SoundController.PlaySound(SoundController.Sound.Portal);
+        SoundController.Instance.PlaySound(SoundController.Sound.Teleport);
     }
 	
 	/// <summary>

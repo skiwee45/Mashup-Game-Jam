@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameAssets : MonoBehaviour
 {
@@ -8,13 +9,25 @@ public class GameAssets : MonoBehaviour
 
     public static GameAssets i {
         get {
-            if (_i ==null) _i = Instantiate(Resources.Load<GameAssets>("GameAssets"));
             return _i;
         }
     }
+    void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+        SceneManager.LoadScene("MainMenu");
+        // SoundController.Initialize();
+    }
 
-    void Start() {
-        SoundController.Initialize();
+    void Awake()
+    {
+        if (!_i)
+        {
+            _i = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+            DestroyImmediate(gameObject);
     }
 
     public SoundAudioClip[] soundAudioClipArray;

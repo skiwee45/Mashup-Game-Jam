@@ -142,6 +142,50 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -9048387037246611838, guid: 1b79103d9142536478549362ef5acf81, type: 3}
+    - target: {fileID: 5064574596510251525, guid: 164e985126606964fbbf529b41a9e34c, type: 3}
+      propertyPath: soundAudioClipArray.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5064574596510251525, guid: 164e985126606964fbbf529b41a9e34c, type: 3}
+      propertyPath: soundAudioClipArray.Array.data[1].sound
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5064574596510251525, guid: 164e985126606964fbbf529b41a9e34c, type: 3}
+      propertyPath: soundAudioClipArray.Array.data[2].sound
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5064574596510251525, guid: 164e985126606964fbbf529b41a9e34c, type: 3}
+      propertyPath: soundAudioClipArray.Array.data[3].sound
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5064574596510251525, guid: 164e985126606964fbbf529b41a9e34c, type: 3}
+      propertyPath: soundAudioClipArray.Array.data[4].sound
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5064574596510251525, guid: 164e985126606964fbbf529b41a9e34c, type: 3}
+      propertyPath: soundAudioClipArray.Array.data[5].sound
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5064574596510251525, guid: 164e985126606964fbbf529b41a9e34c, type: 3}
+      propertyPath: soundAudioClipArray.Array.data[1].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4c1e17982b454a542ba0dd2a6d98be6f, type: 3}
+    - target: {fileID: 5064574596510251525, guid: 164e985126606964fbbf529b41a9e34c, type: 3}
+      propertyPath: soundAudioClipArray.Array.data[2].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ef41387b70247cc408bafe9dbedbf6c2, type: 3}
+    - target: {fileID: 5064574596510251525, guid: 164e985126606964fbbf529b41a9e34c, type: 3}
+      propertyPath: soundAudioClipArray.Array.data[3].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 527850ca88d36d1459f646401c6fec03, type: 3}
+    - target: {fileID: 5064574596510251525, guid: 164e985126606964fbbf529b41a9e34c, type: 3}
+      propertyPath: soundAudioClipArray.Array.data[4].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e5e65064f54729a4fab062d941a6c5da, type: 3}
+    - target: {fileID: 5064574596510251525, guid: 164e985126606964fbbf529b41a9e34c, type: 3}
+      propertyPath: soundAudioClipArray.Array.data[5].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 59a56272b8b95294ebb252780f5166cb, type: 3}
     - target: {fileID: 5993035272768471868, guid: 164e985126606964fbbf529b41a9e34c, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -198,30 +242,28 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u21BB"
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 907639401, guid: 164e985126606964fbbf529b41a9e34c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 164e985126606964fbbf529b41a9e34c, type: 3}
 --- !u!1 &373992111 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4918020871445369144, guid: 164e985126606964fbbf529b41a9e34c, type: 3}
   m_PrefabInstance: {fileID: 373992110}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &373992112 stripped
+--- !u!1 &1950817825 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6951955538645073505, guid: 164e985126606964fbbf529b41a9e34c, type: 3}
   m_PrefabInstance: {fileID: 373992110}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &373992114
+--- !u!114 &1950817826
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 373992112}
+  m_GameObject: {fileID: 1950817825}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e05bb0814c0b2e649ab15a981b1cc74c, type: 3}
+  m_Script: {fileID: 11500000, guid: d04c0ad469ff9db4c8e2d4d56d5d313b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundAudioClipArray:
-  - sound: 0
-    audioClip: {fileID: 0}

@@ -398,7 +398,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 73
+    m_FontSize: 54
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -412,8 +412,8 @@ MonoBehaviour:
   m_Text: "In this platformer, you have no control of the character: he will always
     be walking forward. \n\nTo complete levels, you must use teleporters:\n\nClick
     once to create a starting teleporter. \nThe second click will create the ending
-    teleporter.\n\nCredits: \nCreated by Raymond, Will, Alex, and Arthur\nFont: Adventure
-    by Neale Davidson"
+    teleporter.\n\nPlease, play full screen to view the entire level.\n\nCredits:
+    \nCreated by Raymond, Will, Alex, and Arthur\nFont: Adventure by Neale Davidson"
 --- !u!222 &1730134653
 CanvasRenderer:
   m_ObjectHideFlags: 0

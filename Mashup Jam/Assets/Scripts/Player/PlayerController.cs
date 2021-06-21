@@ -18,6 +18,6 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
 	    rb.velocity = new Vector2(speed, rb.velocity.y);
-        SoundController.PlaySound(SoundController.Sound.PlayerMove);
+        SoundController.Instance.PlaySound(SoundController.Sound.PlayerMove);
     }
 }

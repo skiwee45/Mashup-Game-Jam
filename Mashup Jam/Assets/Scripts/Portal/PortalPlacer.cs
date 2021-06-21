@@ -117,8 +117,8 @@ public class PortalPlacer : MonoBehaviour
 		{
 			return;
 		}
-		
-		Vector2 pos = currentPlaceholder.transform.position;
+        SoundController.Instance.PlaySound(SoundController.Sound.PortalPlace);
+        Vector2 pos = currentPlaceholder.transform.position;
 		if (fullPortalPlaced) //start portal
 		{
 			//destroy last portal
